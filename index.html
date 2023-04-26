@@ -5,14 +5,33 @@
      <title>Hello Universe</title>
      <style>
           body {
+               position: relative;
+               animation: bounce 2s infinite;
+               font-family: 'Pacifico', cursive;
                background-color: #ff5555;
                color: black;
                font-size: 4em;
                text-align: center;
-               margin-top: 20%;
+               < !-- margin-top: 20%;
+               -->
+          }
+
+          @keyframes bounce {
+               0% {
+                    top: 0;
+               }
+
+               50% {
+                    top: 100px;
+               }
+
+               100% {
+                    top: 0;
+               }
           }
      </style>
 </head>
+<link href="https://fonts.googleapis.com/css?family=Pacifico&display=swap" rel="stylesheet">
 
 <body>
      <h1>Hello Universe</h1>
