@@ -1,3 +1,6 @@
 [submodule "shell"]
 	path = shell
 	url = git@github.com:RexAckermann/shell.git
+[submodule "rexlvim"]
+	path = rexlvim
+	url = git@github.com:RexAckermann/rexlvim.git
