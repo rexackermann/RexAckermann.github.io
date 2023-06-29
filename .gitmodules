@@ -7,3 +7,6 @@
 [submodule "autowallp"]
 	path = autowallp
 	url = git@github.com:RexAckermann/autowallp.git
+[submodule "rexdoom"]
+	path = rexdoom
+	url = git@github.com:RexAckermann/rexdoom.git
