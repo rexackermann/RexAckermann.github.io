@@ -4,3 +4,6 @@
 [submodule "rexlvim"]
 	path = rexlvim
 	url = git@github.com:RexAckermann/rexlvim.git
+[submodule "autowallp"]
+	path = autowallp
+	url = git@github.com:RexAckermann/autowallp.git
