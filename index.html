@@ -43,15 +43,16 @@
 
 <h6>
     <div id="head"></div>
-    <h1>Hello Universe</h1>
+    <!-- <h1>Hello Universe</h1> -->
+    <h1>rexackermann</h1>
 </h6>
 
 </ul>
 
 <body>
     <style>
-        .repo-list {
-            /* animation: bounce 0s infinite; */
+        .repo-name {
+         /* animation: bounce 0s infinite; */
             background-color: black;
             color: white;
             font-size: 2em;
@@ -60,40 +61,107 @@
             border-radius: 10px; /* Adjust the value to control the roundness */
             padding: 10px; /* Add padding to give some space inside the element */
         }
+
+        .repo-link {
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+            transition: color 0.3s ease-in-out;
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #ff5555;
+            color: black;
+            /* background-color: black; */
+            /* color: #e74c3c; */
+            font-size: 18px;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease-out;
+        }
+
+
+        .repo-link::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 10px;
+            height: 10px;
+            /* color: #ff5555; */
+            background-color: black;
+            /* background-color: #e74c3c; */
+            transform-origin: center;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            opacity: 0;
+            transition: width 0.3s ease-out, height 0.3s ease-out, opacity 0.3s ease-out;
+        }
+
+        .repo-link:hover::before {
+            /* background-color: black; */
+            /* color: #ff5555; */
+            /* background-color: #ff5555; */
+            /* color: black; */
+            width: 300px;
+            height: 300px;
+            opacity: 0.5;
+        }
+
     </style>
 
 
     <p></p>
 
-    <ul class="repo-list">
+    <ul class="repo-name">
 <h2>Repos</h2>
 
-    <div id="repositories-list"></div>
+    <div id="repo-list"></div>
+
 
 <script>
-    // Replace 'YOUR_GITHUB_USERNAME' with the actual GitHub username
-    const username = 'rexackermann';
-    const apiUrl = `https://api.github.com/users/${username}/repos`;
+  const githubAccount = 'rexackermann';
+  const repoListContainer = document.getElementById('repo-list');
 
-    // Fetch repositories using GitHub API
-    fetch(apiUrl)
-        .then(response => response.json())
-        .then(repositories => {
-            const repositoriesList = document.getElementById('repositories-list');
-
-            repositories.forEach(repo => {
-                const repoLink = document.createElement('a');
-                repoLink.href = repo.html_url;
-                repoLink.textContent = repo.name;
-
-                const listItem = document.createElement('p');
-                listItem.appendChild(repoLink);
-
-                repositoriesList.appendChild(listItem);
-            });
-        })
-        .catch(error => console.error('Error fetching repositories:', error));
+  // Fetch repositories from GitHub API
+  fetch(`https://api.github.com/users/${githubAccount}/repos`)
+    .then(response => response.json())
+    .then(repos => {
+      repos.forEach(repo => {
+        const repoLink = document.createElement('a');
+        repoLink.href = repo.html_url;
+        repoLink.className = 'repo-link';
+        repoLink.textContent = repo.name;
+        repoListContainer.appendChild(repoLink);
+      });
+    })
+    .catch(error => console.error('Error fetching GitHub repositories:', error));
 </script>
+
+<!-- <script>
+     // Replace 'YOUR_GITHUB_USERNAME' with the actual GitHub username
+     const username = 'rexackermann';
+     const apiUrl = `https://api.github.com/users/${username}/repos`;
+
+     // Fetch repositories using GitHub API
+     fetch(apiUrl)
+     .then(response => response.json())
+     .then(repositories => {
+     const repositoriesList = document.getElementById('repositories-list');
+
+     repositories.forEach(repo => {
+     const repoLink = document.createElement('a');
+     repoLink.href = repo.html_url;
+     repoLink.textContent = repo.name;
+
+     const listItem = document.createElement('p');
+     listItem.appendChild(repoLink);
+
+     repositoriesList.appendChild(listItem);
+     });
+     })
+     .catch(error => console.error('Error fetching repositories:', error));
+     </script> -->
 
 </ul>
 
