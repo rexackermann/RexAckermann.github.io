@@ -35,6 +35,39 @@
 
 <body>
      <h1>Hello Universe</h1>
+
+
+     
+<h2>GitHub Repositories</h2>
+
+<div id="repositories-list"></div>
+
+<script>
+    // Replace 'YOUR_GITHUB_USERNAME' with the actual GitHub username
+    const username = 'rexackermann';
+    const apiUrl = `https://api.github.com/users/${username}/repos`;
+
+    // Fetch repositories using GitHub API
+    fetch(apiUrl)
+        .then(response => response.json())
+        .then(repositories => {
+            const repositoriesList = document.getElementById('repositories-list');
+
+            repositories.forEach(repo => {
+                const repoLink = document.createElement('a');
+                repoLink.href = repo.html_url;
+                repoLink.textContent = repo.name;
+
+                const listItem = document.createElement('p');
+                listItem.appendChild(repoLink);
+
+                repositoriesList.appendChild(listItem);
+            });
+        })
+        .catch(error => console.error('Error fetching repositories:', error));
+</script>
+
 </body>
+     
 
 </html>
