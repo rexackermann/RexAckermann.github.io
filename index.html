@@ -4,57 +4,69 @@
 <head>
      <title>Hello Universe</title>
      <style>
-          body {
-               position: relative;
-               animation: bounce 2s infinite;
-               font-family: 'Pacifico', cursive;
-               background-color: #ff5555;
-               color: black;
-               font-size: 4em;
-               text-align: center;
-               < !-- margin-top: 20%;
-               -->
+      body {
+          background-color: #ff5555;
+
+      }
+      .head1 {
+          position: relative;
+          animation: bounce 2s infinite;
+          font-family: 'Pacifico', cursive;
+          /* background-color: #ff5555; */
+          color: black;
+          font-size: 4em;
+          text-align: center;
+          /* < !-- margin-top: 20%; */
+          /* --> */
+      }
+
+      @keyframes bounce {
+          0% {
+              top: 0;
           }
 
-          @keyframes bounce {
-               0% {
-                    top: 0;
-               }
-
-               50% {
-                    top: 100px;
-               }
-
-               100% {
-                    top: 0;
-               }
+          50% {
+              top: 100px;
           }
+
+          100% {
+              top: 0;
+          }
+      }
       }
      </style>
 </head>
 <link href="https://fonts.googleapis.com/css?family=Pacifico&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
 
+<ul class="head1">
+
 <h6>
     <div id="head"></div>
     <h1>Hello Universe</h1>
-<h6>
+</h6>
+
+</ul>
 
 <body>
     <style>
         .repo-list {
+            /* animation: bounce 0s infinite; */
             background-color: black;
             color: white;
-            font-size: medium;
+            font-size: 2em;
             text-align: left;
             font-family: 'Roboto', sans-serif;
-            < !-- margin-top: 20%;
-            -->
+            border-radius: 10px; /* Adjust the value to control the roundness */
+            padding: 10px; /* Add padding to give some space inside the element */
+        }
     </style>
 
 
+    <p></p>
+
     <ul class="repo-list">
-<h2>GitHub Repositories</h2>
+<h2>Repos</h2>
 
     <div id="repositories-list"></div>
 
